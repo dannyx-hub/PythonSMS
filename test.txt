@@ -1,0 +1,62 @@
+​import tkinter as tk
+import tkinter.font as tkFont
+
+class App:
+    def __init__(self, root):
+        #setting title
+        root.title("PythonSMS")
+        #setting window size
+        width=600
+        height=500
+        screenwidth = root.winfo_screenwidth()
+        screenheight = root.winfo_screenheight()
+        alignstr = '%dx%d+%d+%d' % (width, height, (screenwidth - width) / 2, (screenheight - height) / 2)
+        root.geometry(alignstr)
+        root.resizable(width=False, height=False)
+
+        GLineEdit_747=tk.Entry(root)
+        GLineEdit_747["borderwidth"] = "1px"
+        ft = tkFont.Font(family='Times',size=10)
+        GLineEdit_747["font"] = ft
+        GLineEdit_747["fg"] = "#333333"
+        GLineEdit_747["justify"] = "center"
+        GLineEdit_747["text"] = "Entry"
+        GLineEdit_747.place(x=60,y=70,width=460,height=30)
+        GLineEdit_747["show"] = "text"
+
+        GLineEdit_834=tk.Entry(root)
+        GLineEdit_834["borderwidth"] = "1px"
+        ft = tkFont.Font(family='Times',size=10)
+        GLineEdit_834["font"] = ft
+        GLineEdit_834["fg"] = "#333333"
+        GLineEdit_834["justify"] = "center"
+        GLineEdit_834["text"] = "Entry"
+        GLineEdit_834["relief"] = "flat"
+        GLineEdit_834.place(x=60,y=160,width=464,height=138)
+        GLineEdit_834["show"] = "text"
+
+        GButton_227=tk.Button(root)
+        GButton_227["bg"] = "#efefef"
+        ft = tkFont.Font(family='Times',size=10)
+        GButton_227["font"] = ft
+        GButton_227["fg"] = "#000000"
+        GButton_227["justify"] = "center"
+        GButton_227["text"] = "Button"
+        GButton_227.place(x=180,y=340,width=199,height=65)
+        GButton_227["command"] = self.GButton_227_command
+
+        GMessage_956=tk.Message(root)
+        ft = tkFont.Font(family='Times',size=10)
+        GMessage_956["font"] = ft
+        GMessage_956["fg"] = "#333333"
+        GMessage_956["justify"] = "center"
+        GMessage_956["text"] = "Message"
+        GMessage_956.place(x=130,y=450,width=298,height=35)
+
+    def GButton_227_command(self):
+        print("command")
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = App(root)
+    root.mainloop()
