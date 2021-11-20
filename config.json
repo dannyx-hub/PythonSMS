@@ -1,3 +1,5 @@
 {
-    "path":"D:\\skrypty\\platform-tools\\adb.exe start-server"
+    "path":"D:\\skrypty\\platform-tools\\adb.exe start-server",
+    "host":"localhost",
+    "port":"5037"
 }
