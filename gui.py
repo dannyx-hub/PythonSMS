@@ -1,9 +1,7 @@
-import tkinter as tk 
+import tkinter as tk
 import tkinter.font as tkFont
-from adbgui import main
 
 class App:
-    global tn, mg
     def __init__(self, root):
         #setting title
         root.title("PythonSMS")
@@ -16,58 +14,66 @@ class App:
         root.geometry(alignstr)
         root.resizable(width=False, height=False)
 
-        tel=tk.Entry(root)
-        tel["borderwidth"] = "1px"
+        self.GLineEdit_220=tk.Entry(root)
+        self.GLineEdit_220["borderwidth"] = "1px"
         ft = tkFont.Font(family='Times',size=10)
-        tel["font"] = ft
-        tel["fg"] = "#333333"
-        tel["justify"] = "center"
-        tel["text"] = "Entry"
-        tel.place(x=60,y=70,width=460,height=30)
-        tel["show"] = "text"
-        global tn  
-        tn = tel.get()
-        
-        msg=tk.Entry(root)
-        msg["borderwidth"] = "1px"
-        ft = tkFont.Font(family='Times',size=10)
-        msg["font"] = ft
-        msg["fg"] = "#333333"
-        msg["justify"] = "center"
-        msg["text"] = "Entry"
-        msg["relief"] = "flat"
-        msg.place(x=60,y=160,width=464,height=138)
-        msg["show"] = "text"
-        global mg
-        mg = msg.get()
-        
-        
-        button=tk.Button(root)
-        button["bg"] = "#efefef"
-        ft = tkFont.Font(family='Times',size=10)
-        button["font"] = ft
-        button["fg"] = "#000000"
-        button["justify"] = "center"
-        button["text"] = "Button"
-        button.place(x=180,y=340,width=199,height=65)
-        button["command"] = self.button_command
+        self.GLineEdit_220["font"] = ft
+        self.GLineEdit_220["fg"] = "#333333"
+        self.GLineEdit_220["justify"] = "center"
+        # self.GLineEdit_220["text"] = "Entry"
+        self.GLineEdit_220.place(x=0,y=80,width=358,height=35)
+        # self.GLineEdit_220["show"] = "text"
 
-        GMessage_956=tk.Message(root)
-        ft = tkFont.Font(family='Times',size=10)
-        GMessage_956["font"] = ft
-        GMessage_956["fg"] = "#333333"
-        GMessage_956["justify"] = "center"
-        GMessage_956["text"] = "Message"
-        GMessage_956.place(x=130,y=450,width=298,height=35)
+        self.GLineEdit_3=tk.Entry(root)
+        self.GLineEdit_3["borderwidth"] = "1px"
+        self.GLineEdit_3["fg"] = "#333333"
+        self.GLineEdit_3['justify'] = 'center'
+        self.GLineEdit_3.place(x=0,y=150,width=357,height=38)
 
-    def button_command(self):
-        print(mg)
-        # self.GMessage_956.set(main(tel,msg))
-    def main(self):
-        self.GMessage_956.set("test")
+
+
+        GLabel_132=tk.Label(root)
+        ft = tkFont.Font(family='Times',size=10)
+        GLabel_132["font"] = ft
+        GLabel_132["fg"] = "#333333"
+        GLabel_132["justify"] = "center"
+        GLabel_132["text"] = "numer telefonu"
+        GLabel_132.place(x=10,y=40,width=152,height=30)
+
+        GLabel_484=tk.Label(root)
+        ft = tkFont.Font(family='Times',size=10)
+        GLabel_484["font"] = ft
+        GLabel_484["fg"] = "#333333"
+        GLabel_484["justify"] = "center"
+        GLabel_484["text"] = "tresc wiadomosci"
+        GLabel_484.place(x=0,y=120,width=163,height=30)
+
+        self.GMessage_236=tk.Message(root)
+        ft = tkFont.Font(family='Times',size=10)
+        self.GMessage_236["font"] = ft
+        self.GMessage_236["fg"] = "#333333"
+        self.GMessage_236["justify"] = "center"
+        self.GMessage_236["text"] = "Message"
+        self.GMessage_236.place(x=120,y=360,width=355,height=113)
+
+        GButton_899=tk.Button(root)
+        GButton_899["bg"] = "#efefef"
+        ft = tkFont.Font(family='Times',size=10)
+        GButton_899["font"] = ft
+        GButton_899["fg"] = "#000000"
+        GButton_899["justify"] = "center"
+        GButton_899["text"] = "wyślij"
+        GButton_899.place(x=170,y=220,width=239,height=70)
+        GButton_899["command"] = self.GButton_899_command
+
+    def GButton_899_command(self):
+        from adbgui import main
+        self.temp = self.GLineEdit_220.get()
+        self.temp2 = self.GLineEdit_3.get()
+        self.adb = main(self.temp,self.temp2)
+        self.GMessage_236.set(self.adb)
 
 if __name__ == "__main__":
-    from adb import main
     root = tk.Tk()
     app = App(root)
     root.mainloop()

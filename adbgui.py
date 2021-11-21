@@ -20,7 +20,7 @@ def main(tel_number,msg):
             senddone = False
             try:
                 device.shell(f"service call isms 7 i32 0 s16 'com.android.mms.service' s16 '{tel_number}'  s16 'null' s16 '{msg}' s16 'null' ")
-                return "[*] message send!" 
+                return "[*] message send!"
             except Exception as e:
                 return f"[!] {e}"
 
