@@ -7,8 +7,8 @@ import config
 tprint("PythonSMS")
 print("\nwritten by Dannyx ©2021")
 print("[*] ADB server start..")
-path = config.JSONimport()
-os.system(path)
+config= config.JSONimport()
+os.system(config[0])
 tel_number = None
 msg = None
 
@@ -25,7 +25,11 @@ for opt,arg in opts:
 
 senddone = True
 while senddone:
-    adb = Client(host='localhost', port=5037)
+    if len(config[1]) == 0 or len(config[2]) == 0:
+        adb = Client(host='localhost', port=5037)   #when config dosent have added host and port information run on default settings
+        print("[!] no host and port information on config.json. Run on default settings")
+    else:
+            adb = Client(host=config[1], port=int(config[2]))
     devices = adb.devices()
     if len(devices) ==0:
         print("[!]  no devices/emulators found")

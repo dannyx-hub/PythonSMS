@@ -5,11 +5,13 @@ def JSONimport():
         with open("config.json","r") as jsonconfig:
             config=json.load(jsonconfig)
             path = config["path"]
+            host = config["host"]
+            port = config["port"]
             if len(path) == 0:
-                print("[*] path is empty. Please change your config file and rerun this shit")
+                print("[*] Please change your config file and rerun this shit")
                 sys.exit(1)
             else:
-                    return path
+                    return path,host,port
     else:
         print("[*] ERROR: config file isn't exist. We change that and create this shit for you gl")
         with open("config.json", "w") as jsonconfig:
@@ -18,4 +20,5 @@ def JSONimport():
             json.dump(data,jsonconfig)
     
     
-JSONimport()
+dump = JSONimport()
+print(dump[0])

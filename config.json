@@ -1,5 +1,5 @@
 {
-    "path":"D:\\skrypty\\platform-tools\\adb.exe start-server",
-    "host":"localhost",
-    "port":"5037"
+    "path":"C:\\Users\\daro3\\Downloads\\platform-tools_r31.0.3-windows\\platform-tools",
+    "host":"",
+    "port":""
 }
