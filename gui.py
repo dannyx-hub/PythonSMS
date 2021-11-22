@@ -16,6 +16,8 @@ class App:
         root.configure(bg="#3b3b39")
         root.resizable(width=False, height=False)
 
+        #message box to set status
+
         self.GMessage_588=tk.Message(root)
         self.GMessage_588["anchor"] = "center"
         ft = tkFont.Font(family='Times',size=16)
@@ -24,8 +26,9 @@ class App:
         self.GMessage_588['bg'] = "#3b3b39"
         self.GMessage_588["justify"] = "center"
         self.GMessage_588["text"] = ""
-        # self.GMessage_588['textcolor'] = "#babab8"
         self.GMessage_588.place(x=0,y=360,width=598,height=137)
+
+        #Entry to phone number
 
         self.GLineEdit_510=tk.Entry(root)
         self.GLineEdit_510["borderwidth"] = "1px"
@@ -36,6 +39,8 @@ class App:
         self.GLineEdit_510["text"] = ""
         self.GLineEdit_510['bg'] = "#858585"
         self.GLineEdit_510.place(x=160,y=110,width=290,height=40)
+
+        #Entry to write message content
 
         self.GLineEdit_972=tk.Entry(root)
         self.GLineEdit_972["borderwidth"] = "1px"
@@ -54,7 +59,6 @@ class App:
         GLabel_949["justify"] = "center"
         GLabel_949["text"] = "Phone Number"
         GLabel_949['bg'] = "#3b3b39"
-        # GLabel_949['textcolor'] = "#babab8"
         GLabel_949.place(x=170,y=60,width=270,height=25)
 
         GLabel_420=tk.Label(root)
@@ -104,8 +108,9 @@ class App:
             tkinter.messagebox.showinfo(title="PythonSMS", message="you must add number and message")
             self.GMessage_588.configure(text="something gone wrong, check connection, config file and run again")
     def GButton_692_command(self):
-        from configgui import createNewWindow
-        createNewWindow()
+        import os
+        os.popen("python configgui.py")
+        
 
 if __name__ == "__main__":
     root = tk.Tk()
